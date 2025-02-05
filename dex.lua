@@ -1,4 +1,4 @@
-local player = script:FindFirstAncestorOfClass("Player")
+local player = game["Run Service"]:IsClient() and game.Players.LocalPlayer or script:FindFirstAncestorOfClass("Player")
 
 CreateGui = function()
 
