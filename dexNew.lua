@@ -2369,7 +2369,7 @@ A GUI panel that displays the game hierarchy.
 	
 	local light = Color3.new(1,1,1)
 	local dark = Color3.new(0,0,0)
-	local inverted = Color3.new(0,0,0):Lerp(player.TagColor.Value, 0.5)
+	local inverted = Color3.new(0.5,0.5,0.5)
 
 	local GuiColor = {
 		Background      = light;
