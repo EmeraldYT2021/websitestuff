@@ -1709,7 +1709,7 @@ CreateGui = function()
 end
 
 local D_E_X = CreateGui()
-D_E_X.Parent = script:FindFirstAncestorOfClass("Player").PlayerGui
+D_E_X.Parent = player.PlayerGui
 
 script.Parent = D_E_X
 
