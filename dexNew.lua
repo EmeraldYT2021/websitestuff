@@ -1,4 +1,4 @@
-local player = game["Run Service"]:IsClient() and game.Players.LocalPlayer or script:FindFirstAncestorOfClass("Player")
+local Player = game["Run Service"]:IsClient() and game.Players.LocalPlayer or script:FindFirstAncestorOfClass("Player")
 
 CreateGui = function()
 
@@ -1709,7 +1709,7 @@ CreateGui = function()
 end
 
 local D_E_X = CreateGui()
-D_E_X.Parent = player.PlayerGui
+D_E_X.Parent = Player.PlayerGui
 
 script.Parent = D_E_X
 
@@ -1770,8 +1770,7 @@ spawn(function()
 	local TotallyNotSelectionChanged = ExplorerPanel:WaitForChild("TotallyNotSelectionChanged")
 	local TotallyNotGetSelection = ExplorerPanel:WaitForChild("TotallyNotGetSelection")
 	local TotallyNotSetSelection = ExplorerPanel:WaitForChild("TotallyNotSetSelection")
-
-	local Player = script:FindFirstAncestorOfClass("Player")
+		
 	local Mouse = Player:GetMouse()
 
 	local CurrentWindow = "Nothing c:"
@@ -3515,7 +3514,7 @@ A GUI panel that displays the game hierarchy.
 	end
 
 	function CreateInsertObjectMenu(choices, currentChoice, readOnly, onClick)
-		local mouse = script:FindFirstAncestorOfClass("Player"):GetMouse()
+		local mouse = Player:GetMouse()
 		local totalSize = explorerPanel.Parent.AbsoluteSize.y
 		if #choices == 0 then return end
 
@@ -3604,7 +3603,7 @@ A GUI panel that displays the game hierarchy.
 	end
 
 	function CreateFunctionCallerMenu(choices, currentChoice, readOnly, onClick)
-		local mouse = script:FindFirstAncestorOfClass("Player"):GetMouse()
+		local mouse = Player:GetMouse()
 		
 		local totalSize = explorerPanel.Parent.AbsoluteSize.y
 		if #choices == 0 then return end
@@ -3785,7 +3784,7 @@ A GUI panel that displays the game hierarchy.
 	end
 
 	function CreateRightClickMenu(choices, currentChoice, readOnly, onClick)
-		local mouse = script:FindFirstAncestorOfClass("Player"):GetMouse()
+		local mouse = Player:GetMouse()
 
 		local frame = Instance.new("Frame")	
 		frame.Name = "DropDown"
@@ -3867,7 +3866,7 @@ A GUI panel that displays the game hierarchy.
 
 	function checkMouseInGui(gui)
 		if gui == nil then return false end
-		local plrMouse = script:FindFirstAncestorOfClass("Player"):GetMouse()
+		local plrMouse = Player:GetMouse()
 		local guiPosition = gui.AbsolutePosition
 		local guiSize = gui.AbsoluteSize	
 
@@ -4552,7 +4551,7 @@ A GUI panel that displays the game hierarchy.
 	end
 
 	function rightClickMenu(sObj)
-		local mouse = script:FindFirstAncestorOfClass("Player"):GetMouse()
+		local mouse = Player:GetMouse()
 
 		currentRightClickMenu = CreateRightClickMenu(
 			{"Cut","Copy","Paste Into","Duplicate","Delete","Group","Ungroup","Select Children","Teleport To","Insert Part","Insert Object","View Script","Save Instance","Call Function","Call Remote"},
@@ -4647,7 +4646,7 @@ A GUI panel that displays the game hierarchy.
 					for i = 1,#list do
 						if list[i]:IsA("BasePart") then
 							pcall(function()
-								script:FindFirstAncestorOfClass("Player").Character.HumanoidRootPart.CFrame = list[i].CFrame
+								Player.Character.HumanoidRootPart.CFrame = list[i].CFrame
 							end)
 							break
 						end
@@ -4660,7 +4659,7 @@ A GUI panel that displays the game hierarchy.
 						pcall(function()
 							local newPart = Instance.new("Part")
 							newPart.Parent = list[i]
-							newPart.CFrame = CFrame.new(script:FindFirstAncestorOfClass("Player").Character.Head.Position) + Vector3.new(0,3,0)
+							newPart.CFrame = CFrame.new(Player.Character.Head.Position) + Vector3.new(0,3,0)
 							table.insert(insertedParts,newPart)
 						end)
 					end
@@ -6896,8 +6895,7 @@ Change log:
 	-- Permissions
 
 	function CanEditObject(object)
-		local player = script:FindFirstAncestorOfClass("Player")
-		local character = player.Character
+		local character = Player.Character
 		return Permissions.CanEdit
 	end
 
@@ -7740,7 +7738,7 @@ spawn(function()
 	}
 
 	local userInput = game:GetService("UserInputService")
-	local mouse = script:FindFirstAncestorOfClass("Player"):GetMouse()
+	local mouse = Player:GetMouse()
 
 	local topBar = top:WaitForChild("TopBar")
 	local scriptBar = topBar:WaitForChild("ScriptBar")
@@ -8381,7 +8379,7 @@ spawn(function()
 
 	function checkMouseInGui(gui)
 		if gui == nil then return false end
-		local plrMouse = script:FindFirstAncestorOfClass("Player"):GetMouse()
+		local plrMouse = Player:GetMouse()
 		local guiPosition = gui.AbsolutePosition
 		local guiSize = gui.AbsoluteSize	
 
